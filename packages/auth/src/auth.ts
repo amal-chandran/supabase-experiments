@@ -1,8 +1,8 @@
-import { db } from "./db";
 import { betterAuth, type BetterAuthOptions } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { jwt } from "better-auth/plugins";
 import { SignJWT, importJWK } from "jose";
+import { db } from "./db";
 import * as schema from "./schema";
 
 // Load the private key and kid from SUPABASE_SIGNING_KEY environment variable
@@ -48,13 +48,13 @@ export const auth = betterAuth<BetterAuthOptions>({
   emailAndPassword: {
     enabled: true,
   },
-  socialProviders: {
-    google: {
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      scope: ["email", "profile"],
-    },
-  },
+  // socialProviders: {
+  //   google: {
+  //     clientId: process.env.GOOGLE_CLIENT_ID as string,
+  //     clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+  //     scope: ["email", "profile"],
+  //   },
+  // },
   advanced: {
     defaultCookieAttributes: {
       sameSite: "none",
@@ -122,4 +122,3 @@ export const auth = betterAuth<BetterAuthOptions>({
     }),
   ],
 });
-

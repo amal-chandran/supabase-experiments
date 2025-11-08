@@ -13,11 +13,13 @@
   },
   "scripts": {
     "build": "tsdown",
-    "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
-    "generate:signing-key": "tsx scripts/generate-signing-key.ts"
+    "db:migrate": "npx supabase migrations up",
+    "db:reset": "npx supabase db reset",
+    "generate:signing-key": "tsx scripts/generate-signing-key.ts",
+    "status": "npx supabase status",
+    "dev": "npx supabase start",
+    "reboot": "npx supabase stop && npx supabase start"
   },
   "devDependencies": {
     "drizzle-kit": "^0.31.2",

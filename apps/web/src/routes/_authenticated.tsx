@@ -1,14 +1,19 @@
 import Loader from "@/components/loader";
 import { authClient } from "@/lib/auth-client";
-import { createFileRoute, Navigate, Outlet, redirect } from "@tanstack/react-router";
+import {
+  createFileRoute,
+  Navigate,
+  Outlet,
+  redirect,
+} from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_authenticated")({
   beforeLoad: async () => {
     // Check if user is authenticated
     const sessionData = await authClient.getSession();
-    
+
     // If no session, redirect to login
-    if (!sessionData?.data) {
+    if (!sessionData?.user) {
       throw redirect({
         to: "/login",
       });
@@ -38,4 +43,3 @@ function AuthenticatedLayout() {
     </div>
   );
 }
-
