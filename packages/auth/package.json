@@ -25,10 +25,6 @@
     "compile": "bun build --compile --minify --sourcemap --bytecode ./src/app.ts --outfile server",
     "dev": "tsx watch src/app.ts",
     "start": "node dist/app.js",
-    "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
     "auth:generate": "npx @better-auth/cli generate"
   },
   "devDependencies": {
