@@ -1,5 +1,5 @@
 {
-  "name": "@supabase-better-auth/auth",
+  "name": "@supabase-start/auth",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

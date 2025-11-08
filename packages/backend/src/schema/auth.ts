@@ -1,1 +1,1 @@
-export * from "@supabase-better-auth/auth/schema";
+export * from "@supabase-start/auth/schema";

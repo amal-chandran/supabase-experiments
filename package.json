@@ -1,5 +1,5 @@
 {
-  "name": "supabase-better-auth",
+  "name": "supabase-start",
   "private": true,
   "type": "module",
   "workspaces": [
@@ -13,10 +13,10 @@
     "dev:native": "turbo -F native dev",
     "dev:web": "turbo -F web dev",
     "dev:server": "turbo -F server dev",
-    "db:push": "turbo -F @supabase-better-auth/db db:push",
-    "db:studio": "turbo -F @supabase-better-auth/db db:studio",
-    "db:generate": "turbo -F @supabase-better-auth/db db:generate",
-    "db:migrate": "turbo -F @supabase-better-auth/db db:migrate"
+    "db:push": "turbo -F @supabase-start/db db:push",
+    "db:studio": "turbo -F @supabase-start/db db:studio",
+    "db:generate": "turbo -F @supabase-start/db db:generate",
+    "db:migrate": "turbo -F @supabase-start/db db:migrate"
   },
   "dependencies": {
     "dotenv": "^17.2.2",

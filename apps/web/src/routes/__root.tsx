@@ -16,11 +16,11 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
   head: () => ({
     meta: [
       {
-        title: "supabase-better-auth",
+        title: "supabase-start",
       },
       {
         name: "description",
-        content: "supabase-better-auth is a web application",
+        content: "supabase-start is a web application",
       },
     ],
     links: [

@@ -1,5 +1,5 @@
 {
-  "name": "@supabase-better-auth/db",
+  "name": "@supabase-start/db",
   "type": "module",
   "exports": {
     ".": {
@@ -36,6 +36,6 @@
     "dotenv": "^17.2.2",
     "zod": "^4.1.11",
     "jose": "^5.9.6",
-    "@supabase-better-auth/auth": "*"
+    "@supabase-start/auth": "*"
   }
 }
