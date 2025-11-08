@@ -29,7 +29,15 @@ export function usePosts() {
         throw new Error(error.message);
       }
 
-      return data as Post[];
+      // Map snake_case fields from Supabase to camelCase
+      return (data || []).map((post: any) => ({
+        id: post.id,
+        userId: post.user_id,
+        content: post.content,
+        coverImage: post.cover_image,
+        createdAt: post.created_at,
+        updatedAt: post.updated_at,
+      })) as Post[];
     },
   });
 }
@@ -86,7 +94,15 @@ export function useCreatePost() {
         throw new Error(error.message);
       }
 
-      return data as Post;
+      // Map snake_case fields from Supabase to camelCase
+      return {
+        id: data.id,
+        userId: data.user_id,
+        content: data.content,
+        coverImage: data.cover_image,
+        createdAt: data.created_at,
+        updatedAt: data.updated_at,
+      } as Post;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["posts"] });
