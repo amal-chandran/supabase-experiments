@@ -13,7 +13,7 @@ export interface Post {
 
 export interface CreatePostInput {
   content: string;
-  coverImage?: string | null;
+  coverImageFile?: File;
 }
 
 export function usePosts() {
@@ -44,12 +44,40 @@ export function useCreatePost() {
         throw new Error("User not authenticated");
       }
 
+      let coverImageUrl: string | null = null;
+
+      // Upload cover image to Supabase Storage if provided
+      if (input.coverImageFile) {
+        const fileExt = input.coverImageFile.name.split(".").pop();
+        const fileName = `${session.user.id}/${Date.now()}.${fileExt}`;
+        const filePath = `${fileName}`;
+
+        const { error: uploadError, data: uploadData } = await supabase.storage
+          .from("post-covers")
+          .upload(filePath, input.coverImageFile, {
+            cacheControl: "3600",
+            upsert: false,
+          });
+
+        if (uploadError) {
+          throw new Error(`Failed to upload image: ${uploadError.message}`);
+        }
+
+        // Get public URL for the uploaded file
+        const { data: urlData } = supabase.storage
+          .from("post-covers")
+          .getPublicUrl(filePath);
+
+        coverImageUrl = urlData.publicUrl;
+      }
+
+      // Create the post with the cover image URL
       const { data, error } = await supabase
         .from("posts")
         .insert({
           user_id: session.user.id,
           content: input.content,
-          cover_image: input.coverImage || null,
+          cover_image: coverImageUrl,
         })
         .select()
         .single();

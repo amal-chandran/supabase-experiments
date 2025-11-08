@@ -33,13 +33,5 @@ function AuthenticatedLayout() {
     return <Navigate to="/login" />;
   }
 
-  return (
-    <div className="flex justify-center min-h-screen">
-      <div className="w-full max-w-7xl my-10 min-h-1/2 bg-background rounded-lg shadow-lg border overflow-hidden">
-        <div className="flex-1">
-          <Outlet />
-        </div>
-      </div>
-    </div>
-  );
+  return <Outlet />;
 }

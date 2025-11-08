@@ -1,8 +1,6 @@
-import { pgSchema, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
 
-export const publicSchema = pgSchema("public");
-
-export const posts = publicSchema.table("posts", {
+export const posts = pgTable("posts", {
   id: uuid("id").primaryKey().defaultRandom(),
   userId: uuid("user_id").notNull(),
   content: text("content").notNull(),
