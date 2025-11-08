@@ -1,13 +1,19 @@
 import type { Post } from "@/lib/hooks/use-posts";
+import { useDeletePost } from "@/lib/hooks/use-posts";
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader } from "./ui/card";
+import { Button } from "./ui/button";
+import { Trash2 } from "lucide-react";
 
 interface PostCardProps {
   post: Post;
+  currentUserId?: string;
 }
 
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post, currentUserId }: PostCardProps) {
   const [imageError, setImageError] = useState(false);
+  const deletePost = useDeletePost();
+  const canDelete = currentUserId && post.userId === currentUserId;
 
   // Format date safely
   const formatDate = (dateString: string) => {
@@ -29,9 +35,21 @@ export function PostCard({ post }: PostCardProps) {
     }
   };
 
+  const handleDelete = async () => {
+    if (confirm("Are you sure you want to delete this post?")) {
+      try {
+        await deletePost.mutateAsync(post.id);
+      } catch (error) {
+        console.error("Failed to delete post:", error);
+      }
+    }
+  };
+
+  const hasImage = post.coverImage && !imageError;
+
   return (
-    <Card className="pt-0">
-      {post.coverImage && !imageError && (
+    <Card className={hasImage ? "pt-0" : ""}>
+      {hasImage && (
         <div className="w-full h-64 overflow-hidden rounded-t-xl border-b">
           <img
             src={post.coverImage}
@@ -43,7 +61,20 @@ export function PostCard({ post }: PostCardProps) {
         </div>
       )}
       <CardHeader>
-        <CardDescription>{formatDate(post.createdAt)}</CardDescription>
+        <div className="flex items-start justify-between">
+          <CardDescription>{formatDate(post.createdAt)}</CardDescription>
+          {canDelete && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleDelete}
+              disabled={deletePost.isPending}
+              className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10"
+            >
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          )}
+        </div>
       </CardHeader>
       <CardContent>
         <p className="whitespace-pre-wrap text-sm leading-relaxed">

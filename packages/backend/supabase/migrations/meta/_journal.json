@@ -22,6 +22,20 @@
       "when": 1762585256917,
       "tag": "0002_charming_mordo",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1762585797478,
+      "tag": "0003_easy_ironclad",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1762585936308,
+      "tag": "0004_dusty_the_initiative",
+      "breakpoints": true
     }
   ]
 }

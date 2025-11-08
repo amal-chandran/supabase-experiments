@@ -1,0 +1,1 @@
+CREATE POLICY "anyone can select posts" ON "posts" AS PERMISSIVE FOR SELECT TO public USING (true);
