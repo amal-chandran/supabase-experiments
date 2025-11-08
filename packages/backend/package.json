@@ -16,12 +16,14 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate"
+    "db:migrate": "drizzle-kit migrate",
+    "generate:signing-key": "tsx scripts/generate-signing-key.ts"
   },
   "devDependencies": {
     "drizzle-kit": "^0.31.2",
     "@types/pg": "^8.11.11",
-    "tsdown": "^0.15.5"
+    "tsdown": "^0.15.5",
+    "tsx": "^4.19.2"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -30,6 +32,8 @@
     "drizzle-orm": "^0.44.2",
     "pg": "^8.14.1",
     "dotenv": "^17.2.2",
-    "zod": "^4.1.11"
+    "zod": "^4.1.11",
+    "jose": "^5.9.6",
+    "@supabase-better-auth/auth": "*"
   }
 }

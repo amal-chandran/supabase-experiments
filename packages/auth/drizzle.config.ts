@@ -4,11 +4,12 @@ import { defineConfig } from "drizzle-kit";
 dotenv.config();
 
 export default defineConfig({
-  schemaFilter: ["public"],
-  schema: "./src/schema",
-  out: "./supabase/migrations",
+  schema: "./src/schema.ts",
+  out: "./src/migrations",
   dialect: "postgresql",
+  schemaFilter: ["better_auth"],
   dbCredentials: {
     url: process.env.DATABASE_URL || "",
   },
 });
+

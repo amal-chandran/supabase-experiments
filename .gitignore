@@ -48,3 +48,6 @@ coverage
 .cache
 tmp
 temp
+
+packages/backend/supabase/signing_key.base
+packages/backend/supabase/signing_key.json
