@@ -15,7 +15,7 @@ export function createSupabaseClient(): SupabaseClient {
 
   return createClient(
     supabaseUrl,
-    import.meta.env.VITE_SUPABASE_ANON_KEY || "",
+    import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || "",
     {
       global: {
         // Custom fetch that intercepts requests and adds Better Auth token
@@ -47,4 +47,3 @@ export function createSupabaseClient(): SupabaseClient {
 }
 
 export const supabase = createSupabaseClient();
-
