@@ -1,0 +1,27 @@
+{
+    "name": "@supabase-start/math",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./src/index.ts"
+        },
+        "./*": {
+            "types": "./dist/*.d.ts",
+            "default": "./src/*.ts"
+        }
+    },
+    "type": "module",
+    "scripts": {
+        "build": "tsdown",
+        "check-types": "tsc -b"
+    },
+    "devDependencies": {
+        "@types/node": "^22.13.11",
+        "tsdown": "^0.15.5",
+        "tsx": "^4.19.2",
+        "typescript": "^5.8.2"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    }
+}

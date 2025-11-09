@@ -1,0 +1,21 @@
+{
+    "name": "@supabase-start/console",
+    "type": "module",
+    "scripts": {
+        "build": "tsdown",
+        "check-types": "tsc -b",
+        "dev": "tsx watch src/index.ts"
+    },
+    "devDependencies": {
+        "@types/node": "^22.13.11",
+        "tsdown": "^0.15.5",
+        "tsx": "^4.19.2",
+        "typescript": "^5.8.2"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "@supabase-start/math": "*"
+    }
+}
