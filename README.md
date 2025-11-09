@@ -249,3 +249,11 @@ For more details, refer to:
 
 - [Hono on Vercel Documentation](https://vercel.com/docs/frameworks/backend/hono)
 - [Vite on Vercel Documentation](https://vercel.com/docs/frameworks/frontend/vite)
+
+## References
+
+The following resources were helpful in developing this solution:
+
+- [Better Auth Discord Discussion](https://discord.com/channels/839993398554656828/1435439475261050880) - Community discussion on Better Auth implementation
+- [Better Auth JWT Plugin Documentation](https://www.better-auth.com/docs/plugins/jwt#usage) - Guide for implementing JWT tokens with Better Auth
+- [Supabase Clerk Integration](https://supabase.com/partners/integrations/clerk) - Reference for integrating third-party auth with Supabase RLS
