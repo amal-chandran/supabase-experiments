@@ -19,6 +19,7 @@
     "generate:signing-key": "tsx scripts/generate-signing-key.ts",
     "status": "npx supabase status",
     "dev": "npx supabase start",
+    "dev:functions": "npx supabase functions serve",
     "reboot": "npx supabase stop && npx supabase start"
   },
   "devDependencies": {
