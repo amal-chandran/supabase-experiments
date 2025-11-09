@@ -1,0 +1,6 @@
+{
+  "name": "@supabase-start/math",
+  "version": "1.0.0",
+  "exports": "./dist/index.js",
+  "imports": {}
+}

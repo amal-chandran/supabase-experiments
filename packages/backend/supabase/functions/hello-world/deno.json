@@ -1,3 +1,7 @@
 {
-  "imports": {}
+  "name": "@supabase-start/hello-world",
+  "version": "1.0.0",
+  "imports": {
+    "@supabase-start/math": "../../../../math/dist/index.js"
+  }
 }

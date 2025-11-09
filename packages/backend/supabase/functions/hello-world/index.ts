@@ -5,11 +5,14 @@
 // Setup type definitions for built-in Supabase Runtime APIs
 // import "jsr:@supabase/functions-js/edge-runtime.d.ts"
 
+import { add } from "@supabase-start/math";
+
 console.log("Hello from Functions!");
 
 Deno.serve(async (req) => {
   const data = {
     message: `Hello World!`,
+    result: add(1, 2),
   };
 
   return new Response(

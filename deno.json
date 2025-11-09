@@ -1,0 +1,12 @@
+{
+  "workspace": [
+    "./packages/*",
+    "./packages/backend/supabase/functions/*"
+  ],
+  "imports": {
+    "chalk": "npm:chalk@5"
+  },
+  "compilerOptions": {
+    "checkJs": true
+  }
+}
