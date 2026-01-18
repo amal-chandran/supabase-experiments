@@ -1,3 +1,4 @@
+import type { Database } from "@supabase-start/db/database.types";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { authClient } from "./auth-client";
 
@@ -6,14 +7,14 @@ import { authClient } from "./auth-client";
  * The token is injected into request headers via a custom fetch interceptor
  * Similar to Clerk's pattern for injecting tokens
  */
-export function createSupabaseClient(): SupabaseClient {
+export function createSupabaseClient(): SupabaseClient<Database> {
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 
   if (!supabaseUrl) {
     throw new Error("VITE_SUPABASE_URL environment variable is required");
   }
 
-  return createClient(
+  return createClient<Database>(
     supabaseUrl,
     import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || "",
     {

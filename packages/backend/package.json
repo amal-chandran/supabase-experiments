@@ -17,6 +17,7 @@
     "db:migrate": "npx supabase migrations up",
     "db:reset": "npx supabase db reset",
     "generate:signing-key": "tsx scripts/generate-signing-key.ts",
+    "generate:types": "npx supabase gen types typescript --local > src/database.types.ts",
     "status": "npx supabase status",
     "dev": "npx supabase start",
     "reboot": "npx supabase stop && npx supabase start"
